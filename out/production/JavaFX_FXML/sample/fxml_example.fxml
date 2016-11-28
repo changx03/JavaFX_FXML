@@ -1,0 +1,54 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?language javascript?>
+
+<?import java.net.URL?>
+<GridPane fx:controller="sample.FxmlExampleController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
+            styleClass="root">
+    <fx:script>
+        function handleSubmitButtonAction() {
+        actionTarget.setText("Calling the JavaScript");
+        }
+    </fx:script>
+    <!-- dialog padding -->
+    <padding>
+        <Insets top="25" right="25" bottom="10" left="25"/>
+    </padding>
+
+    <!-- title -->
+    <Text text="Welcome" id="welcome-text"
+            GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2"/>
+    <!-- row 1 -->
+    <Label text="User Name:"
+            GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField
+            GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <!-- row 2 -->
+    <Label text="Password:"
+           GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <PasswordField fx:id="passwordField"
+           GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+    <!-- Add Button and Text -->
+    <HBox spacing="10" alignment="BOTTOM_RIGHT"
+          GridPane.columnIndex="1" GridPane.rowIndex="4">
+        <!--
+        <Button text="Sign In" onAction="#handleSubmitButtonAction" />
+        -->
+        <Button text="Sign In" onAction="handleSubmitButtonAction(event);"/>
+    </HBox>
+    <Text fx:id="actionTarget" id="actiontarget"
+        GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+    <!-- Apply CSS style sheet -->
+    <stylesheets>
+        <URL value="@Login.css" />
+    </stylesheets>
+</GridPane>
+
+
+
